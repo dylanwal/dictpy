@@ -47,20 +47,20 @@ You can exact match on `strings`, `int`, `floats` and single line `dictionaries`
 
 ```python
     {"RecordType": "CID"}
-{"RecordNumber": 6}
-{"TOCHeading": "Structures"}
-2526
-"3D Conformer"
+    {"RecordNumber": 6}
+    {"TOCHeading": "Structures"}
+    2526
+    "3D Conformer"
 ```
 
 You also can do partial dictionary searches with "*" as a wild card.
 
 ```python
     {"MoveToTop": "*"}
-{"*": "Chemical Safety"}
+    {"*": "Chemical Safety"}
 ```
 
-### Options on return
+### Options of what is returned
 
 Currently, there are two return options. The exact object (default) or parent object.
 To change to parent object, change return fucntion:
