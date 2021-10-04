@@ -1,29 +1,59 @@
-This folder contains all the tests. 
+# Development Information
 
-To run all checks, in the terminal type:
-1. mypy src
-2. flake8 src
-3. pytest
+## Install need tools:
+Run this in the terminal:
+
+`pip install -r .\requirements_dev.txt`
 
 
-packaging:
-1)py -m build
-2)twine upload dist/*
+## To run tests:
+Run this in the terminal:
 
-creating Badges
-test:
-1) pytest --junitxml=reports/junit/junit.xml
-2) genbadge tests
+`pytest`
 
-coverange
 
-flake8:
-1) flake8 src  --exit-zero --format=html --htmldir ./reports/flake8 --statistics --tee --output-file flake8stats.txt
-2)
+## To run flake8:
+Run this in the terminal:
 
-download stats:
-`pypistats recent dictpy`
-`pypinfo dictpy`    <-- pypi all time download
+`flake8 src`
 
-![Github All Releases](https://img.shields.io/github/downloads/dylanwal/dictpy/total.svg)
 
+## To run mypy:
+Run this in the terminal:
+
+`mypy src`
+
+## To run tox:
+Run this in the terminal:
+
+`tox`
+
+---
+## To build package and push update:
+Run this in the terminal:
+
+`py -m build`
+
+`twine upload dist/*`
+
+## To creating/update badges:
+
+**Test:**
+
+`pytest --junitxml=reports/junit/junit.xml`
+
+`genbadge tests -o -> ./tests/badges/tests-badge.svg`
+
+**Coverange:**
+
+`genbadge coverage -o -> ./tests/badges/coverage-badge.svg`
+
+**flake8:**
+
+`flake8 src  --exit-zero --format=html --htmldir ./reports/flake8 --statistics --tee --output-file flake8stats.txt`
+
+`genbadge flake8 -o -> ./tests/badges/flake8-badge.svg`
+
+
+Helpful link:
+https://www.youtube.com/watch?v=DhUpxWjOhME
