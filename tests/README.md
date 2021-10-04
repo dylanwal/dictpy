@@ -6,6 +6,9 @@ To run all checks, in the terminal type:
 3. pytest
 
 
+packaging:
+1)py -m build
+2)twine upload dist/*
 
 creating Badges
 test:

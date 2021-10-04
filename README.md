@@ -1,8 +1,8 @@
 # dictpy (Dictionary Python)
 
-![tests](./tests/badges/tests-badge.svg)
-![tests](./tests/badges/coverage.svg)
-![tests](./tests/badges/flake8-badge.svg)
+![tests](support/badges/tests-badge.svg)
+![tests](support/badges/coverage.svg)
+![tests](support/badges/flake8-badge.svg)
 ![downloads](https://img.shields.io/pypi/dm/dictpy)
 ![license](https://img.shields.io/github/license/dylanwal/dictpy)
 
