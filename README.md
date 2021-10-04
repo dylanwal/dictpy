@@ -1,8 +1,9 @@
 # dictpy (Dictionary Python)
 
+![PyPI](https://img.shields.io/pypi/v/dictpy)
 ![tests](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/tests-badge.svg)
-![tests](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/coverage.svg)
-![tests](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/flake8-badge.svg)
+![coverage](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/coverage.svg)
+![flake8](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/flake8-badge.svg)
 ![downloads](https://img.shields.io/pypi/dm/dictpy)
 ![license](https://img.shields.io/github/license/dylanwal/dictpy)
 
