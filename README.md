@@ -1,10 +1,12 @@
 # dictpy (Dictionary Python)
 
-![tests](support/badges/tests-badge.svg)
-![tests](support/badges/coverage.svg)
-![tests](support/badges/flake8-badge.svg)
+![tests](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/tests-badge.svg)
+![tests](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/coverage.svg)
+![tests](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/flake8-badge.svg)
 ![downloads](https://img.shields.io/pypi/dm/dictpy)
 ![license](https://img.shields.io/github/license/dylanwal/dictpy)
+
+
 
 This Python Package can help with finding data in large complex Python dictionaries. These data structures of typical of
 JSON Files.
