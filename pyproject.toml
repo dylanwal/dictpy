@@ -5,11 +5,19 @@ requires = [
     ]
 build-backend = "setuptools.build_meta"
 
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "--cov=dictpy --cov-report term-missing --cov-report html"
 testpaths = [
     "tests"
+    ]
+
+[coverage]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:"
     ]
 
 [tool.mypy]

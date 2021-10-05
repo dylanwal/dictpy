@@ -1,3 +1,7 @@
+"""
+This contains DictSearch which is used to search python dictionaries.
+"""
+
 
 from typing import Union, Dict, List, Callable, Optional, Any
 
@@ -6,10 +10,19 @@ class DictSearch:
 
     def __init__(self,
                  data: Dict[str, Any],
-                 target: Union[str, int, float, Dict[str, Any]],
+                 target: Union[str, int, float, Dict[str, Any], None],
                  return_func: Optional[Callable[[Any, Any], Any]] = None,
-                 op_convert_str_to_num: bool = True
+                 op_convert_str_to_num: bool = True,
+                 op_sort_result: bool = True
                  ):
+        """
+
+        :param data: The python dictionary you want to search
+        :param target: The target you want to find in the python dictionary
+        :param return_func: The return you want to get. Default -> current object
+        :param op_convert_str_to_num: Option to covert numbers that are strings into numerical values when searching
+        :param op_sort_result: Option to sort  result by tree length (short first) then alphabetical.
+        """
         self._target_not_dict = False
         self._check_target_function = self.target_check_function_selector(target)
         self.op_convert_str_to_num = op_convert_str_to_num
@@ -17,7 +30,7 @@ class DictSearch:
         self.target = target
         self.return_func = return_func if return_func is not None else DictSearch.return_current_object
 
-        self.result = self.extract(self.data)
+        self.result = self.sort_result(self.extract(self.data)) if op_sort_result else self.extract(self.data)
 
     def target_check_function_selector(self, target) -> Callable[[Any, Optional[Any]], Any]:
         """Given a target choose the correct target check function."""
@@ -36,6 +49,10 @@ class DictSearch:
         elif isinstance(target, (float, int)):
             self._target_not_dict = True
             func_out = self._check_target_num
+
+        elif target is None:
+            self._target_not_dict = True
+            func_out = self._check_target_none
 
         else:
             raise TypeError("Invalid 'target' type, or both key and value were wildcards (*) which is invalid.")
@@ -66,6 +83,11 @@ class DictSearch:
 
     def _check_target_str(self, k: Any, v: Optional[Any] = None) -> bool:
         if (isinstance(k, str) and k == self.target) or (isinstance(v, str) and v == self.target):
+            return True
+        return False
+
+    def _check_target_none(self, k: Any, v: Optional[Any] = "") -> bool:
+        if (k is None) or (v is None):
             return True
         return False
 
@@ -125,3 +147,10 @@ class DictSearch:
                         out.append(self.return_func(obj, obj_))
 
         return out
+
+    def sort_result(self, result: List[Any]) -> List[Any]:
+        """Sorts on tree depth then alphabetically on last tree key"""
+        if result == []:
+            return result
+
+        return sorted(result, key=lambda pair: (pair[0].count("."), pair[0].split(".")[-1]))

@@ -23,24 +23,32 @@ def test_result(example_json):
 
 targets = [
     [{"RecordType": "CID"}, [['Record.RecordType', {'RecordType': 'CID'}]]],
+
     [{"RecordNumber": 6}, [['Record.RecordNumber', {'RecordNumber': 6}]]],
+
     [{"TOCHeading": "Structures"}, [['Record.Section.TOCHeading', {'TOCHeading': 'Structures'}]]],
+
     [{"TOCHeading": "3D Conformer"}, [['Record.Section.Section.TOCHeading', {'TOCHeading': '3D Conformer'}]]],
-    [{"MoveToTop": "*"}, [['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
+
+    [{"MoveToTop": "*"}, [['Record.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
                           ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
-                          ['Record.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
+                          ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
+                          ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
+                          ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
                           ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
                           ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
                           ['Record.Section.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
-                          ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
-                          ['Record.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}],
                           ['Record.Section.Section.Section.DisplayControls.MoveToTop', {'MoveToTop': True}]]
      ],
     [{"*": "Chemical Safety"}, [['Record.Section.TOCHeading', {'TOCHeading': 'Chemical Safety'}],
                                 ['Record.Section.Information.Name', {'Name': 'Chemical Safety'}]]],
+
     [2526, [['Record.Section.Section.Section.Information.Value.Number', 2526],
             ['Record.Section.Section.Section.Information.Value.Number', 2526]]],
-    ["3D Conformer", [['Record.Section.Section.TOCHeading', {'TOCHeading': '3D Conformer'}]]]
+
+    ["3D Conformer", [['Record.Section.Section.TOCHeading', {'TOCHeading': '3D Conformer'}]]],
+
+    [None, [['test_null', {'test_null': None}]]]
 ]
 
 
