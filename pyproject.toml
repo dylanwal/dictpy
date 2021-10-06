@@ -16,6 +16,7 @@ testpaths = [
 [coverage]
 exclude_lines = [
     "pragma: no cover",
+    "def _str__",
     "def __repr__",
     "if __name__ == .__main__.:"
     ]

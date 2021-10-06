@@ -2,6 +2,7 @@
 This class is useful for turning custom pyhton classes into JSON compatible dictionaries.
 """
 
+from typing import Dict
 from abc import ABC
 from json import dumps
 
@@ -17,7 +18,7 @@ class Serializer(ABC):
     def __str__(self):
         return dumps(self.remove_none(self.dict_cleanup(self.as_dict(save=False))), indent=2, sort_keys=False)
 
-    def as_dict(self, **kwargs) -> dict:
+    def as_dict(self, **kwargs) -> Dict:
         """Convert and return object as dictionary."""
         keys = {k.lstrip("_") for k in vars(self) if "__" not in k}
 
@@ -39,7 +40,7 @@ class Serializer(ABC):
             return obj
 
     @staticmethod
-    def remove_none(ddict: dict) -> dict:
+    def remove_none(ddict: Dict) -> Dict:
         """Remove 'key, value' pair form dictionary if value is None or []."""
         _dict = {}
         for k, v in ddict.items():
@@ -60,7 +61,7 @@ class Serializer(ABC):
         return _dict
 
     @staticmethod
-    def dict_cleanup(_dict: dict) -> dict:
+    def dict_cleanup(_dict: Dict) -> Dict:
         """Converts any non-JSON covertable objects to strings."""
         attr = dict()
         for k, v in _dict.items():

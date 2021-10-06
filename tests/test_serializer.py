@@ -36,7 +36,7 @@ def test_serialization(example_class):
 def test_none(example_class):
     ddict = example_class.as_dict()
     result = DictSearch(ddict, None).result
-    assert result == [["nnone", {"nnone": None}], ["list_dict.cows", {"cows": None}]]
+    assert result == [["nnone", {"nnone": None}], ["list_dict.2.cows", {"cows": None}]]
 
 
 def test_remove_none(example_class):

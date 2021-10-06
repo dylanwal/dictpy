@@ -1,8 +1,6 @@
 # .coveragerc to control coverage.py
 [run]
 branch = False
-include =
-    */src/*
 
 [report]
 # Regexes for lines to exclude from consideration
