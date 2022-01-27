@@ -1,10 +1,10 @@
 """
-This class is useful for turning custom pyhton classes into JSON compatible dictionaries.
+This class is useful for turning custom python classes into JSON compatible dictionaries.
 """
 
 from typing import Dict
 from abc import ABC
-from json import dumps
+
 
 VALID_TYPES = (str, float, int, bool)
 
@@ -12,19 +12,19 @@ VALID_TYPES = (str, float, int, bool)
 class Serializer(ABC):
     """Base abstract class for a serializer object."""
 
-    def __repr__(self):
-        return dumps(self.dict_cleanup(self.as_dict(save=False)), indent=2, sort_keys=False)
+    def to_JSON(self, remove_none: bool = True) -> dict:
+        if remove_none:
+            return self.remove_none(self.dict_cleanup(self.as_dict()))
 
-    def __str__(self):
-        return dumps(self.remove_none(self.dict_cleanup(self.as_dict(save=False))), indent=2, sort_keys=False)
+        return self.dict_cleanup(self.as_dict())
 
-    def as_dict(self, **kwargs) -> Dict:
+    def as_dict(self) -> Dict:
         """Convert and return object as dictionary."""
         keys = {k.lstrip("_") for k in vars(self) if "__" not in k}
 
         attr = dict()
         for k in keys:
-            value = self._to_dict(self.__getattribute__(k), **kwargs)
+            value = self._to_dict(self.__getattribute__(k))
             attr[k] = value
 
         return attr

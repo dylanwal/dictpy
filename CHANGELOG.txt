@@ -1,0 +1,5 @@
+0.0.6: 1/27/2022:
+    Serializer:
+        * remove __str__
+        * remove __repr__
+        * add to_JSON
