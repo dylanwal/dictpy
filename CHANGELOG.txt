@@ -1,4 +1,4 @@
-0.0.6: 1/27/2022:
+0.0.7: 1/27/2022:
     Serializer:
         * remove __str__
         * remove __repr__

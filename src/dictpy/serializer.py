@@ -12,15 +12,18 @@ VALID_TYPES = (str, float, int, bool)
 class Serializer(ABC):
     """Base abstract class for a serializer object."""
 
-    def to_JSON(self, remove_none: bool = True) -> dict:
+    def to_JSON(self, remove_none: bool = True, skip: set[str] = None) -> dict:
         if remove_none:
-            return self.remove_none(self.dict_cleanup(self.as_dict()))
+            return self.remove_none(self.dict_cleanup(self.as_dict(skip)))
 
-        return self.dict_cleanup(self.as_dict())
+        return self.dict_cleanup(self.as_dict(skip))
 
-    def as_dict(self) -> Dict:
+    def as_dict(self, skip: set[str] = None) -> dict:
         """Convert and return object as dictionary."""
         keys = {k.lstrip("_") for k in vars(self) if "__" not in k}
+
+        if skip:
+            keys = {k for k in keys if k not in skip}
 
         attr = dict()
         for k in keys:
@@ -30,12 +33,12 @@ class Serializer(ABC):
         return attr
 
     @staticmethod
-    def _to_dict(obj, **kwargs):
+    def _to_dict(obj):
         """Convert obj to a dictionary, and return it."""
         if isinstance(obj, list):
-            return [Serializer._to_dict(i, **kwargs) for i in obj]
+            return [Serializer._to_dict(i) for i in obj]
         elif hasattr(obj, "as_dict"):
-            return obj.as_dict(**kwargs)
+            return obj.as_dict()
         else:
             return obj
 
