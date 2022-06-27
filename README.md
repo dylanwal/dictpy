@@ -4,7 +4,7 @@
 ![tests](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/tests-badge.svg)
 ![coverage](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/coverage-badge.svg)
 ![flake8](https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/badges/flake8-badge.svg)
-![downloads](https://img.shields.io/pypi/dm/dictpy)
+![downloads](https://static.pepy.tech/badge/dictpy)
 ![license](https://img.shields.io/github/license/dylanwal/dictpy)
 
 Advanced tools for Python dictionaries.
